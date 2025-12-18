@@ -205,6 +205,10 @@ tr.tancat { background-color: rgb(228, 228, 228); }
 .checkbox.custom input {
     position: absolute;
     opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
 }
 
 .checkbox.custom .checkmark {
