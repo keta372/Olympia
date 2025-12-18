@@ -190,6 +190,59 @@ footer {
     margin-top: 2rem;
 }
 
+/* CENTERED FORM */
+.centered-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* centra verticalment respecte la finestra */
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.centered-form form {
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* FORMULARI EN EL CENTRE DE LA PÀGINA */
+.contact-page {
+    position: relative;
+    min-height: calc(100vh - 160px);
+}
+
+/* centra el formulari absolutament respecte la section */
+.contact-page form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* si vols que el títol i el text estiguin visibles sobre o sota, ajusta ara */
+.contact-page h2,
+.contact-page p {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    pointer-events: none; /* opcional: evita interaccions si queden sobreposats */
+}
+
+/* Ajust per mòbils */
+@media (max-width: 600px) {
+    .centered-form {
+        min-height: auto;
+        padding: 1rem 0;
+        align-items: flex-start;
+    }
+}
+
 /* RESPONSIVE */
 @media (max-width: 800px) {
     .cards {
