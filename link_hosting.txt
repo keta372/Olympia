@@ -3,20 +3,11 @@ OLYMPIA GYM - ENLLAÇOS DE RECURSOS DEL PROJECTE WEB
 ============================================================
 
 1. ENLLAÇ D'ALLOTJAMENT / HOSTING WEB (PÚBLIC)
-----------------------------------------------
 Pots visualitzar la pàgina web en funcionament directament a:
 https://keta372.github.io/Olympia/
 
 Repositori de codi a:
 https://github.com/keta372/Olympia.git
 
-
-2. ENLLAÇ DE GESTIÓ DEL PROJECTE (TRELLO)
-------------------------------------------
-https://trello.com/b/OlympiaGymWebProjectDAM
-
-
 3. ENLLAÇ DEL VÍDEO EXPLICATIU (AMB VEU DE L'ALUMNE)
------------------------------------------------------
-https://drive.google.com/ficar VIDEO
-(Durada del vídeo: 6 minuts i 30 segons. S'hi exposen les fases de disseny, estructura HTML5, dades estructurades Schema.org, responsivitat de 3 mides i la LOPD/RGPD).
+https://drive.google.com/file/d/1KqcDPR-rB733gsCRm3TA1FHEExqGrhFG/view?usp=sharing
