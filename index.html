@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
+    <!-- Metadades bàsiques de la capçalera de la meva web per a l'idioma i les pantalles mòbils -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Olympia, el teu gimnàs modern amb Fitness, Cardio i Powerlifting.">
-    <title>Olympia — Gimnàs</title>
+    <!-- La descripció del gimnàs per a que Google el posicioni bé -->
+    <meta name="description" content="Olympia, el teu gimnàs modern amb Fitness, Cardio i Powerlifting. Zona de musculació prèmium i assessors experts a Barcelona.">
+    <title>Olympia — Inici</title>
+    <!-- Enllaç al full d'estils general que he creat -->
     <link rel="stylesheet" href="Assets/css/styles.css">
+
+    <!-- SEMÀNTICA: Aquí hi he posat les dades estructurades de Schema.org per a que Google identifiqui el gimnàs correctament -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GymOrFitnessCenter",
+      "name": "Olympia",
+      "description": "Gimnàs modern amb zones de Fitness, Cardio i Powerlifting.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Carrer del Fitness, 123",
+        "addressLocality": "Barcelona",
+        "postalCode": "08001",
+        "addressCountry": "ES"
+      },
+      "openingHours": "Mo-Su 06:00-00:00",
+      "priceRange": "$$"
+    }
+    </script>
 </head>
 <body>
 
 <header>
+    <!-- Faig servir un contenidor flexible per separar el logo del menú de navegació -->
     <div class="container header-flex">
+        <!-- El logotip de la meva pàgina -->
         <h1 class="logo"><a href="index.html">Olympia</a></h1>
-        <nav>
-            <ul class="main-nav">
+        <!-- El menú principal de la meva web -->
+        <nav class="main-nav">
+            <ul>
                 <li><a href="index.html" class="active">Inici</a></li>
                 <li><a href="Pages/serveis.html">Serveis</a></li>
                 <li><a href="Pages/sobre.html">Sobre nosaltres</a></li>
@@ -23,93 +48,90 @@
     </div>
 </header>
 
-<main class="container">
+<main>
+    <!-- Secció de presentació principal (Hero) per cridar l'atenció de l'usuari -->
     <section class="hero">
-        <h2>Benvingut a Olympia</h2>
-        <p>Això no és només un gimnàs. És un temple; una segona casa on l'única cosa que importa ets tu.</p>
-        <p>Aquí no només venim a esculpir el cos, també venim a elevar la ment.</p>
+        <div class="container">
+            <h2>Benvingut al Temple</h2>
+            <p>Això no és només un gimnàs. És una segona casa on l'única cosa que importa ets tu. Aquí no només venim a esculpir el cos, també venim a elevar la ment.</p>
+        </div>
     </section>
 
-    <section id="serveis">
-        <h2>Serveis Olympia</h2>
+    <!-- Secció dels serveis més destacats fent servir una graella en CSS -->
+    <section id="serveis-destacats" class="container">
+        <h2>Què t'oferim?</h2>
         <div class="cards">
+            <!-- Cada article representa un dels serveis que tenim -->
             <article class="card">
-                <h3>Fitness</h3>
-                <p>Zona equipada amb les màquines més prèmium i els millors pesos lliures del mercat.</p>
+                <h3>Fitness & Màquines</h3>
+                <p>Zona equipada amb les màquines més prèmium i els millors pesos lliures del mercat per a aïllar cada múscul.</p>
             </article>
             <article class="card">
-                <h3>Cardio</h3>
-                <p>Entrenament cardiovascular amb màquines d’última generació i adaptades a totes les necessitats.</p>
+                <h3>Zona Cardio</h3>
+                <p>Entrenament cardiovascular amb cintes, el·líptiques i rems d’última generació amb pantalles interactives.</p>
             </article>
             <article class="card">
                 <h3>Powerlifting</h3>
-                <p>Zona específica amb racks de competició, discs cal·librats i barres ol·límpiques.</p>
-            </article>
-            <article class="card">
-                <h3>Asesorament Personal</h3>
-                <p>Estratègia d'entrenament i plans nutricionals a mida.</p>
-            </article>
-            <article class="card">
-                <h3>Entrenaments Personals</h3>
-                <p>Entrenaments de Fitness, Powerlifting i Cardio dirigits per professionals.</p>
-            </article>
-            <article class="card">
-                <h3>Dietes Personalitzades</h3>
-                <p>Assessorament nutricional professional. Plans personalitzats per a qualsevol objectiu físic o de salut.</p>
+                <p>Zona específica amb racks de competició, discs calibrats i barres olímpiques per als aixecaments pesats.</p>
             </article>
         </div>
     </section>
 
-    <section id="horaris">
-        <h2>Horaris Olympia</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Horari</th>
-                    <th>Dilluns</th>
-                    <th>Dimarts</th>
-                    <th>Dimecres</th>
-                    <th>Dijous</th>
-                    <th>Divendres</th>
-                    <th>Dissabte</th>
-                    <th>Diumenge</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="obert">
-                    <td>6:00 – 1:30</td>
-                    <td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td>
-                </tr>
-                <tr class="tancat">
-                    <td>1:30 – 6:00</td>
-                    <td>Tancat</td><td>Tancat</td><td>Tancat</td><td>Tancat</td><td>Tancat</td><td>Tancat</td><td>Tancat</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- La taula amb els horaris que em demanava la pràctica (amb colspan per a la nit) -->
+    <section id="horaris" class="container" style="margin-top: 4rem;">
+        <h2>Horaris d'Obertura</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Torn</th>
+                        <th>Dilluns</th>
+                        <th>Dimarts</th>
+                        <th>Dimecres</th>
+                        <th>Dijous</th>
+                        <th>Divendres</th>
+                        <th>Dissabte</th>
+                        <th>Diumenge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="obert">
+                        <td>Dia (6:00 – 00:00)</td>
+                        <td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td><td>Obert</td>
+                    </tr>
+                    <tr class="tancat">
+                        <!-- Aquí faig servir colspan="7" per ajuntar totes les cel·les tal com diu l'enunciat -->
+                        <td>Nit (00:00 – 6:00)</td>
+                        <td colspan="7">Tancat per manteniment i neteja exhaustiva</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <section id="galeria">
-        <h2>Galeria Olympia</h2>
+    <!-- Galeria de fotos de les instal·lacions amb figures i peus de foto -->
+    <section id="galeria" class="container" style="margin-top: 4rem;">
+        <h2>Instal·lacions de Llegenda</h2>
         <div class="gallery">
             <figure>
-                <div class="img-wrap"><img src="Assets/img/OlympiaOutside.jpg" alt="Olympia Outside"></div>
-                <figcaption>Vista general del gimnàs</figcaption>
+                <div class="img-wrap"><img src="Assets/img/OlympiaOutside.jpg" alt="Vista exterior del gimnàs"></div>
+                <figcaption>Vista Exterior</figcaption>
             </figure>
             <figure>
-                <div class="img-wrap"><img src="Assets/img/OlympiaInside.jpg" alt="Olympia Inside"></div>
-                <figcaption>Sala de fitness equipada</figcaption>
+                <div class="img-wrap"><img src="Assets/img/OlympiaInside.jpg" alt="Sala de fitness equipada"></div>
+                <figcaption>Sala Fitness</figcaption>
             </figure>
             <figure>
-                <div class="img-wrap"><img src="Assets/img/Technogym.jpg" alt="Technogym"></div>
-                <figcaption>Màquines, peses i accessoris Technogym</figcaption>
+                <div class="img-wrap"><img src="Assets/img/Technogym.jpg" alt="Zona de màquines Technogym"></div>
+                <figcaption>Zona Technogym</figcaption>
             </figure>
             <figure>
-                <div class="img-wrap"><img src="Assets/img/Hammer-strength.jpg" alt="Hammer Strength"></div>
-                <figcaption>Màquines i racks de competició Hammer Strength</figcaption>
+                <div class="img-wrap"><img src="Assets/img/Hammer-strength.jpg" alt="Màquines Hammer Strength"></div>
+                <figcaption>Zona Hammer Strength</figcaption>
             </figure>
             <figure>
-                <div class="img-wrap"><img src="Assets/img/Eleiko.jpg" alt="Eleiko"></div>
-                <figcaption>Barres i discs olímpics Eleiko</figcaption>
+                <div class="img-wrap"><img src="Assets/img/Eleiko.jpg" alt="Barres i discs Eleiko"></div>
+                <figcaption>Zona Pes Lliure (Eleiko)</figcaption>
             </figure>
         </div>
     </section>
@@ -117,9 +139,45 @@
 
 <footer>
     <div class="container">
-        <p>&copy; 2025 Olympia</p>
+        <!-- El peu de pàgina amb l'enllaç de privadesa obligatori -->
+        <p>&copy; 2025 Olympia Gym. Forjat amb passió. | <a href="Pages/privadesa.html" style="text-decoration: underline;">Política de Privadesa</a></p>
     </div>
 </footer>
 
+<!-- Aquest és el bàner de galetes obligatori segons la LOPD i la RGPD de 2018 -->
+<div id="cookie-banner" class="cookie-banner-hidden">
+    <div class="cookie-content">
+        <p>Aquest lloc web utilitza galetes pròpies i de tercers per millorar la vostra experiència de navegació i analitzar el trànsit. Podeu acceptar-les totes o configurar les seves preferències. Llegiu la nostra <a href="Pages/privadesa.html" style="color: var(--primary-red); text-decoration: underline;">política de galetes</a>.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="cookie-btn accept">Acceptar</button>
+            <button id="cookie-reject" class="cookie-btn reject">Rebutjar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Aquest codi JS s'encarrega de guardar la decisió de l'usuari amb localStorage per a que no torni a sortir el banner
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("cookie-accept");
+        const rejectBtn = document.getElementById("cookie-reject");
+
+        // Miro si l'usuari ja ha contestat abans per amagar o mostrar el bàner
+        if (!localStorage.getItem("cookiesAccepted")) {
+            banner.className = "cookie-banner-visible";
+        }
+
+        acceptBtn.addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "true");
+            banner.className = "cookie-banner-hidden";
+        });
+
+        rejectBtn.addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "false");
+            banner.className = "cookie-banner-hidden";
+        });
+    });
+</script>
+
 </body>
-</html> 
+</html>

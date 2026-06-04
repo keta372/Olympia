@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
+    <!-- Metadades de capçalera i descripció SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Informació sobre Olympia i el nostre equip.">
-    <title>Sobre Olympia</title>
+    <meta name="description" content="Coneix la filosofia d'Olympia i el nostre equip d'experts de Powerlifting i Fitness.">
+    <title>Sobre Nosaltres — Olympia</title>
+    <!-- CSS enllaçat amb camí relatiu correcte -->
     <link rel="stylesheet" href="../Assets/css/styles.css">
+
+    <!-- SEMÀNTICA: Dades Estructurades (Schema.org) per a una pàgina de presentació de l'empresa (AboutPage) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Sobre Olympia Gym",
+      "description": "Explicació sobre els valors, instal·lacions i equip de professionals d'Olympia.",
+      "mainEntity": {
+        "@type": "SportsActivityLocation",
+        "name": "Olympia Gym",
+        "employee": [
+          {
+            "@type": "Person",
+            "name": "Christian",
+            "jobTitle": "Head Coach"
+          },
+          {
+            "@type": "Person",
+            "name": "Marc",
+            "jobTitle": "Instructor Sènior"
+          },
+          {
+            "@type": "Person",
+            "name": "Sam",
+            "jobTitle": "Cardio & HIIT"
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body>
 
 <header>
+    <!-- Contenidor per a maquetació flexible i centrada del logo i la navegació -->
     <div class="container header-flex">
+        <!-- Logo principal enllaçat a l'inici -->
         <h1 class="logo"><a href="../index.html">Olympia</a></h1>
-        <nav>
-            <ul class="main-nav">
+        <!-- Menú de navegació de segon nivell -->
+        <nav class="main-nav">
+            <ul>
                 <li><a href="../index.html">Inici</a></li>
                 <li><a href="serveis.html">Serveis</a></li>
                 <li><a href="sobre.html" class="active">Sobre nosaltres</a></li>
@@ -23,28 +59,96 @@
     </div>
 </header>
 
-<main class="container">
-<section id="sobre">
-    <h2>Sobre Olympia</h2>
-    <p>Això no és només un gimnàs. És un temple; una segona casa on l'única cosa que importa ets tu. Aquí no només venim a esculpir el cos, també venim a elevar la ment.</p>
-    <p>El teu propi Mont Olimp. Hem dissenyat un espai d'avantguarda per portar-te al cim del teu benestar. Amb la guia dels nostres experts i unes instal·lacions que inspiren grandesa, t'ajudem a assolir la teva millor versió.</p>
-    <p>La teva llegenda comença aquí</p>
-    <h3>El nostre equip</h3>
-    <ul>
-        <li>Christian — Entrenador personal i dietista</li>
-        <li>Marc — Instructor de Fitness i Powerlifting</li>
-        <li>Sam — Especialista en entrenaments de Cardio</li>
-    </ul>
-    <h3>La nostra missió</h3>
-    <p>Elevar l'estàndard de l'entrenament fusionant innovació, disseny i acompanyament expert. El nostre propòsit és oferir un entorn d'elit accessible a totes les persones que vulguin esculpir el seu cos i disciplina amb la màxima qualitat.</p>
+<!-- Main: contingut principal adaptat i centrat -->
+<main class="container" style="margin-top: 3rem;">
+<!-- Secció principal sobre la filosofia -->
+<section>
+    <h2>La Nostra Filosofia</h2>
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="margin-bottom: 1rem; font-size: 1.1rem;">El teu propi Mont Olimp. Hem dissenyat un espai d'avantguarda per portar-te al cim del teu benestar. Amb la guia dels nostres experts i unes instal·lacions que inspiren grandesa, t'ajudem a assolir la teva millor versió.</p>
+        <p style="font-weight: bold; color: var(--primary-red); font-size: 1.2rem;">La teva llegenda comença aquí.</p>
+    </div>
+
+    <!-- Secció de vídeo (continguts mínims del projecte) amb wrapper responsive en CSS -->
+    <section class="video-section">
+        <h3>Mira on entrenen les llegendes</h3>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/tUykoP30Gb0" 
+                title="Olympia Gym Tour Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Secció de presentació de l'equip amb graella adaptativa (Grid) -->
+    <section style="margin-top: 4rem;">
+        <h2>El Nostre Equip Expert</h2>
+        <div class="cards">
+            <!-- Article semàntic individual per a cada entrenador -->
+            <article class="card" style="text-align: center;">
+                <h3>Christian</h3>
+                <p style="font-weight: bold; color: #666;">Head Coach</p>
+                <p>Especialista en recomposició corporal i dietista titulat.</p>
+            </article>
+            <article class="card" style="text-align: center;">
+                <h3>Marc</h3>
+                <p style="font-weight: bold; color: #666;">Instructor Sènior</p>
+                <p>Expert en Powerlifting i biomecànica de l'exercici.</p>
+            </article>
+            <article class="card" style="text-align: center;">
+                <h3>Sam</h3>
+                <p style="font-weight: bold; color: #666;">Cardio & HIIT</p>
+                <p>Especialista en entrenaments d'alta intensitat i resistència.</p>
+            </article>
+        </div>
+    </section>
 </section>
 </main>
 
 <footer>
     <div class="container">
-        <p>&copy; 2025 Olympia</p>
+        <!-- Enllaç legal requerit -->
+        <p>&copy; 2025 Olympia Gym. Forjat amb passió. | <a href="privadesa.html" style="text-decoration: underline;">Política de Privadesa</a></p>
     </div>
 </footer>
+
+<!-- ALERTA DE GALETES (COOKIE BANNER) REQUERIT PER LA LOPD -->
+<div id="cookie-banner" class="cookie-banner-hidden">
+    <div class="cookie-content">
+        <p>Aquest lloc web utilitza galetes pròpies i de tercers per millorar la vostra experiència de navegació i analitzar el trànsit. Podeu acceptar-les totes o configurar les seves preferències. Llegiu la nostra <a href="privadesa.html" style="color: var(--primary-red); text-decoration: underline;">política de galetes</a>.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="cookie-btn accept">Acceptar</button>
+            <button id="cookie-reject" class="cookie-btn reject">Rebutjar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Gestió local i persistent del consentiment de galetes a través de localStorage
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("cookie-accept");
+        const rejectBtn = document.getElementById("cookie-reject");
+
+        // Comprova si ja hem demanat permís
+        if (!localStorage.getItem("cookiesAccepted")) {
+            banner.className = "cookie-banner-visible";
+        }
+
+        acceptBtn.addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "true");
+            banner.className = "cookie-banner-hidden";
+        });
+
+        rejectBtn.addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "false");
+            banner.className = "cookie-banner-hidden";
+        });
+    });
+</script>
 
 </body>
 </html>

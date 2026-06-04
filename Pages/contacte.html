@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
+    <!-- Metadades bàsiques i SEO del document -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Formulari de contacte amb Olympia.">
+    <meta name="description" content="Contacta amb l'equip d'Olympia Gym. Estem aquí per ajudar-te amb qualsevol dubte o suggeriment.">
     <title>Contacte — Olympia</title>
+    <!-- Vinculació del full d'estils general (reutilització i estils homogenis) -->
     <link rel="stylesheet" href="../Assets/css/styles.css">
+
+    <!-- SEMÀNTICA: Dades Estructurades (Schema.org) per a una Pàgina de Contacte -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contacta amb Olympia Gym",
+      "description": "Formulari de contacte i atenció al client d'Olympia Gym a Barcelona.",
+      "mainEntity": {
+        "@type": "SportsActivityLocation",
+        "name": "Olympia Gym",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Carrer del Fitness, 123",
+          "addressLocality": "Barcelona",
+          "postalCode": "08001",
+          "addressCountry": "ES"
+        }
+      }
+    }
+    </script>
 </head>
 <body>
 
 <header>
+    <!-- Contenidor per a maquetació flexible i centrada del logo i la navegació -->
     <div class="container header-flex">
+        <!-- Logo principal enllaçat a l'inici -->
         <h1 class="logo"><a href="../index.html">Olympia</a></h1>
-        <nav>
-            <ul class="main-nav">
+        <!-- Menú de navegació de segon nivell -->
+        <nav class="main-nav">
+            <ul>
                 <li><a href="../index.html">Inici</a></li>
                 <li><a href="serveis.html">Serveis</a></li>
                 <li><a href="sobre.html">Sobre nosaltres</a></li>
@@ -23,39 +49,88 @@
     </div>
 </header>
 
-<main class="container">
-<section id="contacte" class="contact-page">
-    <h2>Contacta amb nosaltres</h2>
-    <p>Si tens alguna proposta innovadora, qualsevol dubte o problema, no dubtis en contactar amb nosaltres i t'atendrem el més aviat possible.</p>
+<!-- Main: contingut principal de la pàgina -->
+<main class="container" style="margin-top: 3rem;">
+<section>
+    <!-- Títol principal H2 de la secció amb pseudo-element decoratiu en CSS -->
+    <h2>Parla amb Nosaltres</h2>
+    <p style="text-align: center; margin-bottom: 2rem;">Tens dubtes sobre les tarifes, els horaris o els entrenaments? Omple el formulari i et respondrem en menys de 24h.</p>
 
-    <form method="post" action="#">
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" required>
+    <!-- Contenidor del formulari de contacte -->
+    <div class="contact-form-container">
+        <!-- LOPD/RGPD: formulari configurat amb mètode POST -->
+        <form method="post" action="#">
+            <!-- Camps individuals del formulari, cadascun amb la seva etiqueta (label) vinculada per ID per accessibilitat (W3C) -->
+            <div class="form-group">
+                <label for="nom">Nom complet:</label>
+                <input type="text" id="nom" name="nom" placeholder="Com et dius?" required>
+            </div>
 
-        <label for="email">Correu electrònic:</label>
-        <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label for="email">Correu electrònic:</label>
+                <input type="email" id="email" name="email" placeholder="exemple@correu.com" required>
+            </div>
 
-        <label for="missatge">Missatge:</label>
-        <textarea id="missatge" name="missatge" rows="6" required></textarea>
+            <div class="form-group">
+                <label for="missatge">Missatge:</label>
+                <textarea id="missatge" name="missatge" rows="6" placeholder="Escriu aquí el teu dubte o consulta..." required></textarea>
+            </div>
 
-        <div class="form-actions">
-            <label class="checkbox custom">
-                <input type="checkbox" required>
-                <span class="checkmark"></span>
-                <span class="checkbox-text">Accepto la política de privadesa (RGPD)</span>
-            </label>
+            <!-- COMPLIMENT RGPD: Consentiment explícit amb enllaç directe a la Política de Privadesa -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="lopd-check" required>
+                <label for="lopd-check" style="margin:0; font-weight: 400;">
+                    He llegit i accepto la <a href="privadesa.html" target="_blank" style="color: var(--primary-red); text-decoration: underline; font-weight: bold;">política de privadesa</a> i el tractament de les meves dades (RGPD).
+                </label>
+            </div>
 
-            <button type="submit" class="btn-submit">Enviar</button>
-        </div>
-    </form>
+            <button type="submit" class="btn-submit">Enviar Consulta</button>
+        </form>
+    </div>
 </section>
 </main>
 
 <footer>
     <div class="container">
-        <p>&copy; 2025 Olympia</p>
+        <!-- Enllaç a la política de privadesa des de la part inferior (obligatori per a transparència del lloc) -->
+        <p>&copy; 2025 Olympia Gym. Forjat amb passió. | <a href="privadesa.html" style="text-decoration: underline;">Política de Privadesa</a></p>
     </div>
 </footer>
+
+<!-- ALERTA DE GALETES (COOKIE BANNER) REQUERIT PER LA LOPD -->
+<div id="cookie-banner" class="cookie-banner-hidden">
+    <div class="cookie-content">
+        <p>Aquest lloc web utilitza galetes pròpies i de tercers per millorar la vostra experiència de navegació i analitzar el trànsit. Podeu acceptar-les totes o configurar les seves preferències. Llegiu la nostra <a href="privadesa.html" style="color: var(--primary-red); text-decoration: underline;">política de galetes</a>.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="cookie-btn accept">Acceptar</button>
+            <button id="cookie-reject" class="cookie-btn reject">Rebutjar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Gestió local i persistent del consentiment de galetes a través de localStorage
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("cookie-accept");
+        const rejectBtn = document.getElementById("cookie-reject");
+
+        // Comprova si ja hem demanat permís
+        if (!localStorage.getItem("cookiesAccepted")) {
+            banner.className = "cookie-banner-visible";
+        }
+
+        acceptBtn.addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "true");
+            banner.className = "cookie-banner-hidden";
+        });
+
+        rejectBtn.addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "false");
+            banner.className = "cookie-banner-hidden";
+        });
+    });
+</script>
 
 </body>
 </html>

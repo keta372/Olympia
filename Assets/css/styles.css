@@ -1,275 +1,495 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- 1. CONFIGURACIÓ DE VARIABLES (El meu sistema de colors) --- */
+:root {
+    /* He definit aquestes variables per poder canviar els colors de tota la web des d'aquí */
+    --primary-red: #D92525;  /* El vermell que he triat per transmetre energia i força */
+    --dark-bg: #1F1F1F;      /* Gris fosc elegant per al footer i la navegació */
+    --light-bg: #F4F7F6;     /* Fons clar però no blanc pur per no cansar la vista */
+    --text-color: #333;      /* Color de text estàndard per a bona llegibilitat */
+    --white: #ffffff;
 }
 
-/* STICKY FOOTER SETUP */
-html, body {
-    height: 100%;
+/* --- 2. RESET I BASE (La meva neteja inicial) --- */
+* {
+    /* Elimino els marges per defecte del navegador per tenir jo el control total */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Imprescindible: així el padding no em deforma les caixes */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #222;
-    line-height: 1.5;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    
+    /* TRUC FLEXBOX: He configurat el body com a columna flexible.
+       D'aquesta manera, aconsegueixo que el footer sempre es quedi a baix de tot (sticky footer),
+       fins i tot si la pàgina té poc contingut. */
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
-    flex: 1 0 auto;
+    /* El main creix (flex: 1) per ocupar tot l'espai lliure i empènyer el footer */
+    flex: 1;
+    padding-bottom: 3rem;
 }
 
+/* Aquesta classe 'container' la faig servir a tot arreu per centrar el contingut */
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+    width: 92%;
+    max-width: 1200px; /* Amplada màxima per a pantalles grans */
+    margin: 0 auto; 
+}
+
+/* --- 3. TIPOGRAFIA I ENLLAÇOS --- */
+a {
+    text-decoration: none; /* He tret el subratllat lleig per defecte */
+    color: inherit;
+    transition: color 0.3s ease; /* He afegit una petita animació suau al canvi de color */
 }
 
 h1, h2, h3 {
-    margin-bottom: 0.7rem;
+    color: var(--dark-bg);
+    font-weight: 700;
 }
 
-/* HEADER */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* Element de disseny: He creat una línia vermella sota els títols H2 utilitzant pseudo-elements */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-red);
+    margin: 10px auto 0;
+}
+
+/* --- 4. HEADER I NAVEGACIÓ (Sticky) --- */
 header {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    background: var(--dark-bg);
+    color: var(--white);
     padding: 1rem 0;
+    /* He fet que el menú es quedi fix a dalt quan l'usuari fa scroll */
+    position: sticky;
+    top: 0;
+    z-index: 100; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .header-flex {
-    display: flex;
+    display: flex; /* Utilitzo Flexbox per separar el Logo (esquerra) del Menú (dreta) */
     justify-content: space-between;
     align-items: center;
 }
 
 .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #c21807;
-    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-red); /* Destaco la marca amb el color corporatiu */
 }
 
-.main-nav {
+.main-nav ul {
     list-style: none;
-}
-
-.main-nav li {
-    display: inline;
-    margin-left: 1rem;
+    display: flex; /* Poso els elements del menú en línia horitzontal */
+    gap: 2rem; 
 }
 
 .main-nav a {
-    text-decoration: none;
-    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent; /* Preparo la vora per a l'efecte hover */
 }
 
-.main-nav a.active, .main-nav a:hover {
-    color: #c21807;
+/* Estil per quan passo el ratolí o per a la pàgina activa */
+.main-nav a:hover, .main-nav a.active {
+    color: var(--primary-red);
+    border-bottom-color: var(--primary-red);
 }
 
-/* HERO */
+/* --- 5. HERO SECTION (La meva portada) --- */
 .hero {
-    background: linear-gradient(to right, #c21807, #ff4b3e);
-    color: white;
-    padding: 3rem 0;
-    border-radius: 6px;
-    margin: 1rem 0;
+    /* He creat un degradat diagonal per donar-li un toc modern i profunditat */
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #7a1212 100%);
+    color: var(--white);
+    padding: 5rem 2rem;
     text-align: center;
+    border-radius: 0 0 20px 20px; /* Corba només a la part inferior */
+    margin-bottom: 3rem;
 }
 
-/* CARDS */
+.hero h2 {
+    color: var(--white);
+    font-size: 3rem;
+}
+.hero h2::after { display: none; } /* Aquí no vull la línia vermella sota el títol */
+
+/* --- 6. TARGETES (La meva implementació de GRID) --- */
 .cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 1rem 0;
+    /* Màgia del Grid: Columnes automàtiques que s'adapten sense necessitat de moltes Media Queries.
+       Mínim 300px per targeta, si no hi caben, baixen de línia. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 2rem;
 }
 
 .card {
-    background: white;
-    padding: 1rem;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--primary-red); /* Detall estètic superior */
+    transition: transform 0.3s ease;
 }
 
-/* TAULA */
+.card:hover {
+    transform: translateY(-7px); /* He fet que la targeta "floti" quan la toques */
+}
+
+.card h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+}
+
+/* --- 7. ESTILS DE LA TAULA (Horaris) --- */
+.table-container {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow-x: auto; /* He afegit scroll horitzontal per si es veu des del mòbil */
+}
+
 table {
     width: 100%;
-    background: white;
-    border-collapse: collapse;
-    margin: 1rem 0;
+    border-collapse: collapse; /* Perquè no hi hagi espai entre les vores de les cel·les */
+    margin-top: 1rem;
 }
 
 th, td {
-    padding: 0.7rem;
-    border: 1px solid #c21807;
+    padding: 15px;
     text-align: center;
-    vertical-align: middle;
+    border-bottom: 1px solid #eee;
 }
 
 th {
-    color: white;
-    background-color: #c21807;
+    background-color: var(--primary-red);
+    color: var(--white);
+    text-transform: uppercase;
 }
 
-tr.obert { background-color: white; }
-tr.tancat { background-color: rgb(228, 228, 228); }
+tr.tancat {
+    background-color: #fff0f0;
+    color: #8a1c1c;
+    font-weight: 600; /* Destaco visualment quan està tancat */
+}
 
-/* GALERIA */
+/* --- 8. GALERIA D'IMATGES (Grid + Zoom) --- */
 .gallery {
-    --ratio: 4/3;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .gallery figure {
-    background: white;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden; /* Important per retallar la imatge quan faig el zoom */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.img-wrap {
+    height: 220px;
     overflow: hidden;
 }
 
-.gallery .img-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: var(--ratio);
-    overflow: hidden;
-    background: #f8f8f8;
-}
-
-.gallery .img-wrap img {
-    position: absolute;
-    inset: 0;
+.img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Asseguro que la imatge omple l'espai sense deformar-se */
+    transition: transform 0.5s ease;
 }
 
-.gallery figcaption {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-    color: #555;
+/* El meu efecte preferit: Zoom suau al passar el ratolí */
+.gallery figure:hover .img-wrap img {
+    transform: scale(1.1);
+}
+
+figcaption {
+    padding: 15px;
     text-align: center;
+    font-weight: 600;
+    border-top: 3px solid var(--primary-red);
 }
 
-/* FORMULARI CONTACTE */
-.contact-page {
-    padding: 2.25rem 0;
+/* --- 9. VIDEO RESPONSIVE (Hacking de l'aspect-ratio) --- */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Aquest % màgic manté la proporció 16:9 de YouTube */
+    height: 0;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 12px;
+    border: 3px solid var(--primary-red);
 }
 
-.contact-page form {
-    margin: 1rem auto;
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+/* --- 10. FORMULARI DE CONTACTE --- */
+.contact-form-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+    border-top: 5px solid var(--primary-red);
+}
+
+.form-group { margin-bottom: 1.5rem; }
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+input, textarea {
     width: 100%;
-    max-width: 820px;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 10px;
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-.contact-page form input, .contact-page form textarea {
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
+    padding: 12px;
+    border: 2px solid #eee;
     border-radius: 8px;
 }
 
-.form-actions {
+/* He personalitzat el focus perquè es posi vermell en clicar */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+.btn-submit {
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    width: 100%;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.btn-submit:hover { background-color: #b01e1e; }
+
+/* Checkbox personalitzat per a la LOPD */
+.checkbox-group {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+
+/* --- 11. FOOTER --- */
+footer {
+    background: var(--dark-bg);
+    color: #999;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto; /* Gràcies al Flexbox del body, això es queda avall */
+}
+
+/* --- 12. ALERTA DE GALETES (COOKIE BANNER) --- */
+#cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    background: rgba(31, 31, 31, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--primary-red);
+    color: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cookie-banner-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 50px) !important;
+}
+
+.cookie-banner-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) !important;
+}
+
+.cookie-content {
+    display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* CHECKBOX PERSONALITZAT */
-.checkbox.custom {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: #444;
+.cookie-content p {
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 250px;
+    line-height: 1.5;
 }
 
-.checkbox.custom input {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    pointer-events: none;
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
 }
 
-.checkbox.custom .checkmark {
-    width: 22px;
-    height: 22px;
-    border: 2px solid #ccc;
+.cookie-btn {
+    padding: 10px 20px;
+    font-weight: 700;
     border-radius: 6px;
-    position: relative;
-    background: #fff;
-    transition: all 0.15s ease;
-}
-
-.checkbox.custom input:checked + .checkmark {
-    background: #c21807;
-    border-color: #c21807;
-}
-
-.checkbox.custom .checkmark::after {
-    content: "";
-    position: absolute;
-    left: 6px; top: 2px;
-    width: 6px; height: 11px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    display: none;
-}
-
-.checkbox.custom input:checked + .checkmark::after {
-    display: block;
-}
-
-.contact-page form .btn-submit {
-    background: #c21807;
-    color: white;
     border: none;
-    padding: 0.95rem 1.2rem;
-    font-size: 1.05rem;
-    border-radius: 10px;
     cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* FOOTER */
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: auto;
+.cookie-btn.accept {
+    background-color: var(--primary-red);
+    color: var(--white);
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .gallery, .cards {
-        grid-template-columns: 1fr;
+.cookie-btn.accept:hover {
+    background-color: #b01e1e;
+    transform: translateY(-2px);
+}
+
+.cookie-btn.reject {
+    background-color: #444;
+    color: var(--white);
+}
+
+.cookie-btn.reject:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+/* --- 13. MEDIA QUERIES (3 Mides de Pantalla: Gran, Tauleta, Mòbil) --- */
+
+/* PANTALLES GRAN / DESKTOP (Amplada superior a 1024px) */
+@media (min-width: 1025px) {
+    .container {
+        width: 88%;
     }
-    .form-actions {
+}
+
+/* PANTALLES MITJANES / TAULETA / TABLET (Entre 768px i 1024px inclosos) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    
+    .hero {
+        padding: 4rem 1.5rem;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnes en tauletes per comoditat */
+        gap: 20px;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 imatges per fila en tauletes */
+    }
+}
+
+/* PANTALLES PETITES / SMARTPHONE / MÒBIL (Inferior a 768px) */
+@media (max-width: 767px) {
+    .container {
+        width: 92%;
+    }
+
+    /* Distribució vertical del menú per a mòbils */
+    .header-flex {
+        flex-direction: column; 
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 1.2rem;
+    }
+    
+    .hero {
+        padding: 3rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero h2 { 
+        font-size: 1.8rem; 
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr; /* 1 sola columna en mòbils per optimitzar espai */
+        gap: 15px;
+    }
+
+    .card {
+        padding: 1.8rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+    
+    /* El bàner de galetes es col·loca verticalment en pantalles petites */
+    .cookie-content {
         flex-direction: column;
         align-items: stretch;
     }
-    .btn-submit {
+    
+    .cookie-buttons {
         width: 100%;
+        justify-content: stretch;
+    }
+    
+    .cookie-btn {
+        flex: 1;
+        text-align: center;
     }
 }
+
