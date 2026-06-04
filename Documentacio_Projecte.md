@@ -1,7 +1,7 @@
 # Documentació Tècnica del Projecte Web: Olympia Gym
 **Cicle Formatiu:** DAM 1A (Desenvolupament d'Aplicacions Multiplataforma)  
-**Mòdul:** Disseny d'Interfícies Web (DIW) / Llenguatges de Marques (LLM)  
-**Alumne:** Kevin Mario Tautu  
+**Mòdul:** Llenguatges de Marques (LLM)  
+**Alumne:** Kevin Mario Tautu
 
 ---
 
